@@ -38,6 +38,57 @@ namespace Personas.BE
             DT.WriteXml("Personas.xml");
             return res;
         }
+
+        public bool BorrarPersona(string dni)
+        {
+            bool res = false;
+            int fila = BuscarFilaPersona(dni);
+
+            if(fila!=-1)
+            {
+                DT.Rows[fila].Delete();
+                DT.WriteXml("Personas.xml");
+                res = true;
+            }
+
+            return res;
+        }
+
+        public int BuscarFilaPersona(string dni)
+        {
+            int fila = -1;
+
+            for (int i = 0; i < DT.Rows.Count; i++)
+            {
+                if (DT.Rows[i]["DNI"].ToString() == dni)
+                {
+                    fila = i;
+                    break;
+                }
+            }
+
+            return fila;
+        }
+
+        public Persona BuscarPersona(string dni)
+        {
+            Persona persona = new Persona();
+
+            for (int i = 0; i < DT.Rows.Count; i++)
+            {
+                if (DT.Rows[i]["DNI"].ToString() == dni)
+                {
+                    persona.DNI = DT.Rows[i]["DNI"].ToString();
+                    persona.Nombre = DT.Rows[i]["Nombre"].ToString();
+                    persona.Apellido = DT.Rows[i]["Apellido"].ToString();
+                    persona.Edad = System.Convert.ToInt32( DT.Rows[i]["Edad"]);
+                    break;
+                }
+            }
+
+            return persona;
+        }
+
         private void Leer_DT()
         {
             if (System.IO.File.Exists("Personas.xml"))

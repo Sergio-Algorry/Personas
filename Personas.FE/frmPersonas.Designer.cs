@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gb = new System.Windows.Forms.DataGridView();
+            this.dg = new System.Windows.Forms.DataGridView();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -40,16 +40,16 @@
             this.btBorrar = new System.Windows.Forms.Button();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.gb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg)).BeginInit();
             this.SuspendLayout();
             // 
-            // gb
+            // dg
             // 
-            this.gb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gb.Location = new System.Drawing.Point(4, 73);
-            this.gb.Name = "gb";
-            this.gb.Size = new System.Drawing.Size(553, 286);
-            this.gb.TabIndex = 0;
+            this.dg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg.Location = new System.Drawing.Point(4, 73);
+            this.dg.Name = "dg";
+            this.dg.Size = new System.Drawing.Size(553, 286);
+            this.dg.TabIndex = 0;
             // 
             // txtDNI
             // 
@@ -108,7 +108,7 @@
             this.btCargar.Location = new System.Drawing.Point(564, 34);
             this.btCargar.Name = "btCargar";
             this.btCargar.Size = new System.Drawing.Size(75, 23);
-            this.btCargar.TabIndex = 7;
+            this.btCargar.TabIndex = 5;
             this.btCargar.Text = "Cargar DNI";
             this.btCargar.UseVisualStyleBackColor = true;
             this.btCargar.Click += new System.EventHandler(this.btCargar_Click);
@@ -118,18 +118,20 @@
             this.btBuscar.Location = new System.Drawing.Point(564, 64);
             this.btBuscar.Name = "btBuscar";
             this.btBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btBuscar.TabIndex = 8;
+            this.btBuscar.TabIndex = 6;
             this.btBuscar.Text = "Buscar DNI";
             this.btBuscar.UseVisualStyleBackColor = true;
+            this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
             // 
             // btBorrar
             // 
             this.btBorrar.Location = new System.Drawing.Point(564, 94);
             this.btBorrar.Name = "btBorrar";
             this.btBorrar.Size = new System.Drawing.Size(75, 23);
-            this.btBorrar.TabIndex = 9;
+            this.btBorrar.TabIndex = 7;
             this.btBorrar.Text = "Borrar DNI";
             this.btBorrar.UseVisualStyleBackColor = true;
+            this.btBorrar.Click += new System.EventHandler(this.btBorrar_Click);
             // 
             // txtEdad
             // 
@@ -138,7 +140,7 @@
             this.txtEdad.MaxLength = 8;
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(30, 26);
-            this.txtEdad.TabIndex = 10;
+            this.txtEdad.TabIndex = 4;
             // 
             // label4
             // 
@@ -151,6 +153,7 @@
             // 
             // frmPersonas
             // 
+            this.AcceptButton = this.btCargar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 367);
@@ -165,10 +168,10 @@
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtDNI);
-            this.Controls.Add(this.gb);
+            this.Controls.Add(this.dg);
             this.Name = "frmPersonas";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.gb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,7 +179,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView gb;
+        private System.Windows.Forms.DataGridView dg;
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
