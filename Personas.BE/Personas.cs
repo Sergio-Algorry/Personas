@@ -25,17 +25,21 @@ namespace Personas.BE
         public bool CargarPersona(Persona persona)
         {
             bool res = false;
+            if (!Validar(persona))
+            {
+                //CARGAR DT CON LAS PROPIEDADES DEL OBJETO persona
+                DT.Rows.Add();
+                int i = DT.Rows.Count - 1;
 
-            //CARGAR DT CON LAS PROPIEDADES DEL OBJETO persona
-            DT.Rows.Add();
-            int i = DT.Rows.Count - 1;
+                DT.Rows[i]["DNI"] = persona.DNI;
+                DT.Rows[i]["Nombre"] = persona.Nombre;
+                DT.Rows[i]["Apellido"] = persona.Apellido;
+                DT.Rows[i]["Edad"] = persona.Edad;
 
-            DT.Rows[i]["DNI"] = persona.DNI;
-            DT.Rows[i]["Nombre"] = persona.Nombre;
-            DT.Rows[i]["Apellido"] = persona.Apellido;
-            DT.Rows[i]["Edad"] = persona.Edad;
+                DT.WriteXml(@"D:\xx\Proyecto\Personas.xml");
 
-            DT.WriteXml("Personas.xml");
+                res = true;
+            }
             return res;
         }
 
@@ -47,7 +51,7 @@ namespace Personas.BE
             if(fila!=-1)
             {
                 DT.Rows[fila].Delete();
-                DT.WriteXml("Personas.xml");
+                DT.WriteXml(@"D:\xx\Proyecto\Personas.xml");
                 res = true;
             }
 
@@ -91,10 +95,23 @@ namespace Personas.BE
 
         private void Leer_DT()
         {
-            if (System.IO.File.Exists("Personas.xml"))
+            if (System.IO.File.Exists(@"D:\xx\Proyecto\Personas.xml"))
             {
-                DT.ReadXml("Personas.xml");
+                DT.ReadXml(@"D:\xx\Proyecto\Personas.xml");
             }
+        }
+
+        private bool Validar(Persona persona)
+        {
+            bool res = false;
+            int fila = BuscarFilaPersona(persona.DNI);
+
+            if (fila!=-1)
+            {
+                res = true;
+            }
+
+            return res;
         }
     }
 }

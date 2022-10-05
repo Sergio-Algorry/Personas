@@ -82,5 +82,22 @@ namespace Personas.FE
             txtDNI.Focus();
             txtDNI.SelectAll();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pepe formularionuevo = new pepe("ACA ESTOY", personas.DT);
+
+            formularionuevo.Pepito = new BE.Personas();
+            formularionuevo.PropiedadEntera = 10;
+
+            formularionuevo.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MDIPepe OtroFrm = new MDIPepe();
+
+            OtroFrm.Show(); 
+        }
     }
 }

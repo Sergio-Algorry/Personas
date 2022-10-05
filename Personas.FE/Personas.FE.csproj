@@ -52,10 +52,28 @@
     <Compile Include="frmPersonas.Designer.cs">
       <DependentUpon>frmPersonas.cs</DependentUpon>
     </Compile>
+    <Compile Include="MDIPepe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIPepe.Designer.cs">
+      <DependentUpon>MDIPepe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pepe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pepe.Designer.cs">
+      <DependentUpon>pepe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmPersonas.resx">
       <DependentUpon>frmPersonas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIPepe.resx">
+      <DependentUpon>MDIPepe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pepe.resx">
+      <DependentUpon>pepe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
